@@ -375,10 +375,10 @@ class EnrollmentGUI:
                 pickle.dump(mess_students, f)
             
             # Save photo
-            if not os.path.exists('enrollment_photos'):
-                os.makedirs('enrollment_photos')
+            if not os.path.exists('data/enrollment_photos'):
+                os.makedirs('data/enrollment_photos')
             
-            enrollment_path = f"enrollment_photos/{roll_no}.jpg"
+            enrollment_path = f"data/enrollment_photos/{roll_no}.jpg"
             
             if self.selected_image_path == "temp_capture.jpg":
                 os.rename("temp_capture.jpg", enrollment_path)
@@ -484,7 +484,7 @@ class EnrollmentGUI:
                     pickle.dump(mess_students, f)
                 
                 # Delete photo
-                photo_path = f"enrollment_photos/{roll_no}.jpg"
+                photo_path = f"data/enrollment_photos/{roll_no}.jpg"
                 if os.path.exists(photo_path):
                     os.remove(photo_path)
                 
@@ -524,9 +524,9 @@ class EnrollmentGUI:
                     os.remove(self.mess_db)
                 
                 # Delete enrollment photos
-                if os.path.exists('enrollment_photos'):
-                    for file in os.listdir('enrollment_photos'):
-                        os.remove(os.path.join('enrollment_photos', file))
+                if os.path.exists('data/enrollment_photos'):
+                    for file in os.listdir('data/enrollment_photos'):
+                        os.remove(os.path.join('data/enrollment_photos', file))
                 
                 messagebox.showinfo("Success", "All data cleared!")
                 self.status_label.config(text="All data cleared. Ready to start fresh.", fg='#e74c3c')

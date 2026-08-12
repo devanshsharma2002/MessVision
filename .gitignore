@@ -1,2 +1,29 @@
-college_students.pkl
-mess_students.pkl
+# Python
+__pycache__/
+*.py[cod]
+*.class
+*.so
+.Python
+.venv/
+env/
+venv/
+*.egg-info/
+
+# Data (don't commit student photos)
+data/detected_faces/
+data/enrollment_photos/
+data/*.pkl
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Dependencies
+requirements.txt

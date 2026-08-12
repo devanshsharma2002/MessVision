@@ -22,8 +22,8 @@ class StudentDatabase:
     def create_save_directories(self):
         """Create folders for saving detected faces"""
         directories = [
-            'detected_faces/outsiders',
-            'detected_faces/college_non_mess'
+            'data/detected_faces/outsiders',
+            'data/detected_faces/college_non_mess'
         ]
         for directory in directories:
             if not os.path.exists(directory):
@@ -255,9 +255,9 @@ class EnhancedFaceRecognitionSystem:
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
         
         if category == 'outsider':
-            filename = f"detected_faces/outsiders/outsider_{timestamp}.jpg"
+            filename = f"data/detected_faces/outsiders/outsider_{timestamp}.jpg"
         else:  # college non-mess - use roll number
-            filename = f"detected_faces/college_non_mess/{roll_no}_{timestamp}.jpg"
+            filename = f"data/detected_faces/college_non_mess/{roll_no}_{timestamp}.jpg"
         
         # Save the face with padding
         cv2.imwrite(filename, face_crop)
@@ -397,7 +397,7 @@ def main():
     print("="*60)
     
     # Create enrollment directory if needed
-    enrollment_dir = 'enrollment_photos'
+    enrollment_dir = 'data/enrollment_photos'
     if not os.path.exists(enrollment_dir):
         os.makedirs(enrollment_dir)
         print(f"Created '{enrollment_dir}' directory")
