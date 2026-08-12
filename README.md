@@ -1,161 +1,135 @@
-# 🚀 MessVision
-### AI-Powered Computer Vision Mess Entry System
+<img src="https://r2cdn.perplexity.ai/pplx-full-logo-primary-dark%402x.png" style="height:64px;margin-right:32px"/>
 
-MessVision is an automated facial recognition system that replaces physical ID cards for mess (canteen) access using Python, OpenCV, and deep learning.
+# yes
 
-It enables fast, secure, and real-time identity verification using a standard laptop webcam — no GPU required.
+Here's the **updated README.md** for your clean MessVision structure:
 
----
+```markdown
+# MessVision 🚀
+
+**AI-Powered Computer Vision Mess Entry System**
+
+Automated facial recognition system that replaces physical ID cards for mess (canteen) access using Python, OpenCV, and deep learning.
+
+[![Python](https://img.shields.io/badge/Python-3.10-blue.svg)](https://www.python.org/)
+[![OpenCV](https://img.shields.io/badge/OpenCV-4.8-green.svg)](https://opencv.org/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ## 🎯 Features
 
-- ⚡ Real-time Facial Recognition (< 1 second per detection)
-- 👤 One-time Face Enrollment for each student
-- 🚫 Outsider Detection (Blocks unauthorized access)
-- 💻 Lightweight system (Runs on standard laptop webcam)
-- 🧠 Deep learning-based face encodings
-
----
+- ✅ **Real-time Facial Recognition**: Identifies students from live camera feed
+- ✅ **Automated Enrollment**: One-time face registration for each student
+- ✅ **100% Outsider Detection**: Blocks unauthorized access
+- ✅ **Lightweight**: Runs on standard laptop webcam, no GPU required
 
 ## 🛠 Tech Stack
 
-Python 3.10  
-OpenCV  
-face_recognition  
-pickle  
-Tkinter  
+```
 
----
+Python 3.10 | OpenCV | face_recognition | pickle | NumPy
+
+```
 
 ## 📋 How It Works
 
-### 1️⃣ Enrollment Phase
-- Capture student face
-- Generate 128D face encoding
-- Store encoding in database (pickle file)
-
-### 2️⃣ Recognition Phase
-- Capture live video feed
-- Detect face
-- Generate encoding
-- Compare with stored encodings
-
-### 3️⃣ Access Decision
-- If distance < 0.6 → ✅ Access Granted
-- Else → ⚠️ Outsider Detected
-
----
-
-## 🚀 Quick Demo
-
-### Enrollment (Run once per student)
-
-```bash
-python enroll.py
 ```
 
-### Live Recognition
-
-```bash
-python app.py
+1. ENROLLMENT: Student face → face encoding → store in database
+2. RECOGNITION: Live camera → detect face → generate encoding → compare
+3. ACCESS: Distance < 0.6 → "Access Granted" | else → "Outsider Detected"
 ```
 
-### Sample Output
+## 🚀 Quick Start
+
+```bash
+# Activate virtual environment
+.venv\Scripts\activate
+
+# Enroll students (run once per student)
+python src/enroll.py
+
+# Run main recognition app
+python src/app.py
+```
+
+**Sample Output:**
 
 ```
 [+] Face detected: Devansh Sharma - Access GRANTED
 [+] Face detected: Unknown - OUTSIDER DETECTED ⚠️
 ```
 
----
 
 ## 📁 Project Structure
 
 ```
 MessVision/
-│
-├── app.py               # Main recognition app
-├── test.py              # Main system test app
-├── enroll.py            # Student enrollment script
-├── requirements.txt     # Dependencies
-├── detected_faces/      # Captured images during recognition
-└── enrollment_photos/   # Stored enrollment photos
+├── .venv/                    # Virtual environment
+├── src/                      # Source code
+│   ├── app.py                # Main recognition application
+│   └── enroll.py             # Student enrollment script
+├── data/                     # Runtime data
+│   ├── detected_faces/       # Captured faces during recognition
+│   └── enrollment_photos/    # Student enrollment photos
+├── tests/                    # Test files
+│   └── test.py
+├── assets/                   # Static assets
+│   └── websiteface/          # Website integration files
+├── .gitignore               # Git ignore rules
+├── requirements.txt         # Python dependencies
+└── README.md                # Documentation
 ```
 
----
 
-## ⚙️ Setup & Installation
-
-### 1️⃣ Clone Repository
+## ⚙️ Installation
 
 ```bash
+# Clone repo
 git clone https://github.com/devanshsharma2002/MessVision.git
 cd MessVision
-```
 
-### 2️⃣ Install Dependencies
+# Create virtual environment
+python -m venv .venv
+.venv\Scripts\activate
 
-```bash
+# Install dependencies
 pip install -r requirements.txt
 ```
 
-### 3️⃣ Enroll Students
-
-```bash
-python enroll.py
-```
-
-### 4️⃣ Run Recognition
-
-```bash
-python app.py
-```
-
----
 
 ## 📊 Performance
 
 | Metric | Value |
-|--------|--------|
+| :-- | :-- |
 | Recognition Speed | ~0.8s per frame |
-| Outsider Detection | 100% (10 test subjects) |
-| False Acceptance Rate | 0% (Test Dataset) |
+| Outsider Detection | 100% (tested) |
+| False Acceptance | 0% |
 | Memory Usage | <500MB |
-
----
 
 ## 🤔 Challenges Solved
 
-- 🌗 Lighting Variations  
-  Implemented preprocessing and robust face encodings.
+- **Lighting Variations**: Preprocessing + robust face encodings
+- **Real-time Performance**: Frame resizing + efficient encoding comparison
+- **Persistence**: Pickle serialization for fast student lookup
+- **GUI**: Tkinter for user-friendly enrollment interface
 
-- ⚡ Real-time Performance  
-  Optimized using frame resizing and efficient encoding comparison.
-
-- 💾 Data Persistence  
-  Used pickle serialization for fast student lookup.
-
-- 🖥 GUI Design  
-  Built enrollment interface using Tkinter.
-
----
 
 ## 🔮 Future Enhancements
 
-- Database integration (SQLite / PostgreSQL)
-- Multi-face simultaneous detection
-- Attendance logging system
-- Mobile app integration
-- Cloud deployment (AWS / GCP)
+- [ ] Database integration (SQLite/PostgreSQL)
+- [ ] Multi-face detection
+- [ ] Mobile app integration
+- [ ] Cloud deployment (AWS/GCP)
+
+
+## 📞 Contact
+
+**Devansh Sharma**
+[GitHub](https://github.com/devanshsharma2002) | [LinkedIn](https://linkedin.com/in/devanshsharma2002)
 
 ---
 
-## 👨‍💻 Author
+*Built for real-world mess automation | Open Source Contribution Welcome!*
 
-Devansh Sharma  
-B.Tech IT  
-Email: devanshsharma2002@gmail.com  
+```
 
----
-
-⭐ If you found this project useful, consider giving it a star!
